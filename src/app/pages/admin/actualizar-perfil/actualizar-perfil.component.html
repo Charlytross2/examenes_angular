@@ -1,0 +1,120 @@
+<mat-card>
+  <mat-card-header>
+    <h1 class="text-center">Actualizacion de Usuario</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form (submit)="onSubmit()" enctype="multipart/form-data">
+          <p>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Nombre de usuario</mat-label>
+              <input
+                name="username"
+                [(ngModel)]="user.username"
+                required
+                matInput
+                placeholder="Nombre de Usuario"
+              />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input
+                name="password"
+                [(ngModel)]="user.password"
+                matInput
+                [type]="passwordBool ? 'password' : 'text'"
+                placeholder="Contraseña"
+              />
+              <a
+                mat-icon-button
+                matSuffix
+                (click)="passwordBool = !passwordBool"
+              >
+                <mat-icon>
+                  {{ passwordBool ? "visibility_off" : "visibility" }}
+                </mat-icon>
+              </a>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input
+                name="nombre"
+                [(ngModel)]="user.nombre"
+                required
+                matInput
+                type="text"
+                placeholder="Nombre"
+              />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input
+                name="apellido"
+                [(ngModel)]="user.apellido"
+                required
+                matInput
+                type="text"
+                placeholder="Apellido"
+              />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Correo</mat-label>
+              <input
+                name="correo"
+                [(ngModel)]="user.email"
+                required
+                matInput
+                type="email"
+                placeholder="Correo Electronico"
+              />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Numero de Telefono</mat-label>
+              <input
+                name="telefono"
+                [(ngModel)]="user.telefono"
+                required
+                matInput
+                type="text"
+                placeholder="Telefono"
+              />
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Foto</mat-label>
+              <a mat-icon-button matPrefix (click)="f_input.click()">
+                <mat-icon>attach_file</mat-icon>
+              </a>
+              <input type="text" readonly matInput [formControl]="display"/>
+              <input
+                type="file"
+                hidden
+                #f_input
+                (change)="manejarInputFile(f_input.files!)"
+                accept=".png, .jpeg, .jpg"
+              />
+              <mat-error>Este campo es requerido</mat-error>
+            </mat-form-field>
+          </p>
+          <div class="container text-center mb20">
+            <button type="submit" mat-raised-button color="primary">
+              Actualizar Usuario
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

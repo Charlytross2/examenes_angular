@@ -1,0 +1,55 @@
+<p>
+  <mat-toolbar color="primary">
+    <a
+      [routerLink]="'/'"
+      mat-icon-button
+      class="example-icon"
+      arial-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu_book</mat-icon>
+    </a>
+    <span>Portal de examenes</span>
+    <span class="example-spacer"></span>
+    <a
+      *ngIf="!loginService.isLoggedIn() && verificarPagina('login')"
+      [routerLink]="'/login'"
+      mat-raised-button
+      class="example-icon favorite-icon mr20"
+      aria-label="Example icon-button with heart icon"
+    >
+      Iniciar sesión
+    </a>
+    <a
+      *ngIf="!loginService.isLoggedIn() && verificarPagina('signup')"
+      [routerLink]="'/signup'"
+      mat-raised-button
+      class="example-icon favorite-icon mr20 ml70"
+      aria-label="Example icon-button with heart icon"
+    >
+      Registrar
+    </a>
+    <a
+      *ngIf="loginService.isLoggedIn()"
+      (click)="cerrarSesion()"
+      mat-raised-button
+      class="example-icon favorite-icon mr20"
+      aria-label="Example icon-button with heart icon"
+    >
+      Cerrar sesión
+    </a>
+    <button
+      *ngIf="
+        loginService.isLoggedIn() &&
+        loginService.getUser() != null &&
+        loginService.getUserRole() == 'Admin'
+      "
+      mat-button
+      style="margin-right: 10px"
+      class="example-icon favorite-icon"
+      routerLink="/admin/profile"
+      aria-label="Example icon-button with heart icon"
+    >
+      {{ loginService.getUser().username }}
+    </button>
+  </mat-toolbar>
+</p>

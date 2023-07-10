@@ -1,0 +1,53 @@
+<mat-card style="margin-left: 10px">
+  <mat-card-header>
+    <h1>Detalles del perfil</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="text-center">
+          <img [src]="image" alt="perfil image" class="profile-image" />
+          <h1 class="mt20">{{ user.nombre }} {{ user.apellido }}</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <table class="table text-center">
+              <tr>
+                <td>Nombre de Usuario</td>
+                <td>{{ user.username }}</td>
+              </tr>
+              <tr>
+                <td>Identificador</td>
+                <td>{{ user.id }}</td>
+              </tr>
+              <tr>
+                <td>Telefono</td>
+                <td>{{ user.telefono }}</td>
+              </tr>
+              <tr>
+                <td>Rol</td>
+                <td *ngIf="user.authorities">{{ user.authorities[0].authority }}</td>
+              </tr>
+              <tr>
+                <td>Estado</td>
+                <td>{{ user.habilitado ? "Activo" : "Inactivo" }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card-actions>
+      <div class="container text-center mt20">
+        <button
+          mat-raised-button
+          color="primary"
+          class="mr20"
+          [routerLink]="'/admin/actualizar/' + user.username"
+        >
+          Actualizar
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,65 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt20">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <mat-card-header>
+            <div class="container text-center">
+              <img
+                src="../../../assets/login.png"
+                alt="Login"
+                width="100"
+                height="100"
+              />
+            </div>
+          </mat-card-header>
+          <h1 class="text-center">Inicio de Sesion</h1>
+          <mat-card-content>
+            <form (ngSubmit)="formSubmit()">
+              <p>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Nombre de usuario</mat-label>
+                  <input
+                    [(ngModel)]="loginData.username"
+                    name="username"
+                    required
+                    matInput
+                    placeholder="Digite su nombre de usuario"
+                  />
+                  <mat-hint>El nombre de usuario tiene que ser valido</mat-hint>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Contraseña</mat-label>
+                  <input
+                    [(ngModel)]="loginData.password"
+                    name="password"
+                    required
+                    matInput
+                    type="password"
+                    placeholder="Digite su contraseña"
+                  />
+                  <mat-hint>La contraseña debe ser valida</mat-hint>
+                </mat-form-field>
+              </p>
+              <div class="container text-center mb20">
+                <button mat-raised-button color="primary">
+                  Iniciar Sesion
+                </button>
+                <button
+                  type="reset"
+                  style="margin-left: 20px"
+                  mat-raised-button
+                  color="accent"
+                >
+                  Limpiar
+                </button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
