@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
         this.user.perfil == 'perfil.png' ||
         this.user.perfil == null
       ) {
-        this.image = '../../../assets/default.png';
+        this.image = './assets/default.png';
       } else {
         this.userService.getFoto(this.user.perfil).subscribe({
           next: (data) => {
